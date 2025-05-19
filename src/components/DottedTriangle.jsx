@@ -1,4 +1,3 @@
-// src/components/DottedTriangle.jsx (no change needed here)
 import React from 'react';
 import './DottedTriangle.css';
 

@@ -6,27 +6,18 @@
   border: 5px dotted var(--color-accent-gray);
   box-sizing: border-box;
   pointer-events: none;
-  z-index: 0; /* Ensure they are in the background */
+  z-index: 0; 
   transform-origin: center center; /* Rotate around the square's center */
   transform: scale(0.65) rotate(45deg); /* Make smaller and rotate into a diamond */
 }
 
 .dotted-triangle-left {
-  /* Original Figma top: 179px, left: -301px (for 602x602 square)
-     After scale(0.5), it's visually 301x301.
-     Rotating it 45deg makes a diamond.
-     To make its top-right corner point towards the center and be visible,
-     we need to adjust its position. These are estimates.
-  */
   top: 80px; /* Adjusted vertically to align with the buttons/center content */
   left: -350px; /* Pushes the left edge off-screen, bringing the right corner in */
 }
 
 .dotted-triangle-right {
-  /* Original Figma top: 179px, left: 1619px (for 602x602 square)
-     Symmetry suggests similar adjustments.
-  */
   top: 80px; /* Adjusted vertically, symmetrical to left */
   right: -350px; /* Pushes the right edge off-screen, bringing the left corner in */
-  left: unset; /* Remove conflicting left property from previous state */
+  left: unset; 
 }
