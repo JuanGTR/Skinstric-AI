@@ -1,0 +1,21 @@
+.footer-text-container {
+  width: 316px;
+  height: 72px; /* Figma provides height */
+  margin-top: auto; /* Pushes the footer to the bottom when using flex-direction: column on parent */
+  margin-left: 32px; /* Left align as per Figma */
+  margin-right: auto; /* Push it to left */
+  margin-bottom: 32px; /* Adjust bottom margin if needed */
+  box-sizing: border-box;
+  /* Remove absolute positioning */
+}
+
+.footer-text-content {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%; /* 0% */
+  text-transform: uppercase;
+  color: var(--color-dark-text); /* Black text */
+  margin: 0; /* Remove default paragraph margin */
+}

@@ -1,0 +1,42 @@
+/* src/components/Header.css */
+.header {
+  width: 100%;
+  padding: 23px 32px 0 32px; /* Top, Right, Bottom, Left padding based on Figma's top/left values */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between; /* Pushes left group and button apart */
+  align-items: center;
+  margin-bottom: 200px; /* Space before HeroSection (361px headline top - 23px header top - 16px logo height) */
+}
+
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Adjust this gap based on Figma for "SKINSTRIC" to "INTRO" */
+}
+
+.logo {
+  /* No longer absolute positioning */
+  /* Remove fixed width/height if not strictly necessary for font rendering */
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 600; /* Semibold */
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.02em; /* -2% */
+  text-transform: uppercase;
+  color: var(--color-dark-text); /* Black text */
+}
+
+.main-nav {
+  /* No longer absolute positioning */
+}
+
+.nav-item-intro {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 14px;
+  line-height: 17px;
+  opacity: 0.6;
+  color: var(--color-dark-text); /* Black text */
+  text-transform: uppercase;
+}

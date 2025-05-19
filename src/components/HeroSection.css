@@ -1,0 +1,38 @@
+.hero-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Pushes arrows to edges, centers headline */
+  align-items: center;
+  padding: 0 32px; /* Match header padding for consistent side spacing */
+  box-sizing: border-box;
+  margin-bottom: 30px; /* Estimated space before footer: 862 - 458(arrow top) - 44(arrow height) = 360, need to balance for natural flow */
+}
+
+.hero-headline {
+  /* Using Figma's given width/height as a guide for maximum size */
+  max-width: 680px;
+  width: 100%; /* Make it responsive */
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 300; /* Light */
+  font-size: 128px;
+  line-height: 120px;
+  letter-spacing: -0.07em; /* -7% */
+  text-align: center;
+  color: var(--color-dark-text); /* Black text */
+  margin: 0; /* Remove default h1 margin */
+  /* Remove absolute positioning and fixed width/height here */
+}
+
+/* Adjust font size for smaller screens if needed (example) */
+@media (max-width: 1200px) {
+  .hero-headline {
+    font-size: 96px;
+    line-height: 90px;
+  }
+}
+@media (max-width: 768px) {
+  .hero-headline {
+    font-size: 64px;
+    line-height: 60px;
+  }
+}

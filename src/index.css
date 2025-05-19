@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Roobert TRIAL';
+  src: url('./assets/fonts/Roobert-Trial-Light.woff2') format('woff2'); /* Adjust filename if needed */
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roobert TRIAL';
+  src: url('./assets/fonts/Roobert-Trial-Regular.woff2') format('woff2'); /* Adjust filename if needed */
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roobert TRIAL';
+  src: url('./assets/fonts/Roobert-Trial-Semibold.woff2') format('woff2'); /* Adjust filename if needed */
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* CSS Variables for consistent colors (INVERTED) */
+:root {
+  --color-light-background: #FFFFFF; /* White background */
+  --color-dark-text: #1A1B1C; /* Black text */
+  --color-accent-gray: #A0A4AB; /* For dotted triangle borders */
+}
+
+/* Global Reset and Base Styles */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh; /* Ensure minimum full viewport height, allows content to push it */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  overflow-x: hidden; /* Still needed for the off-screen dotted triangles */
+}
+
+body {
+  font-family: 'Roobert TRIAL', sans-serif; /* Set default font */
+  background-color: var(--color-light-background); /* Overall page background: WHITE */
+  color: var(--color-dark-text); /* Default text color: BLACK */
+}
+
+/* Main App Container for responsive layout */
+.app-container {
+  position: relative; /* All absolutely positioned children (dotted triangles) will be relative to this */
+  max-width: 1920px; /* Max width from Figma, will scale down */
+  width: 100%; /* Make it responsive */
+  margin: 0 auto; /* Center the container on larger screens */
+  min-height: 100vh; /* Ensure it's at least viewport height */
+  overflow: hidden; /* Crucial to hide the parts of the large dotted triangles that are off-screen */
+  display: flex;
+  flex-direction: column; /* Arrange header, hero, footer vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+/* Basic reset for lists and links */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

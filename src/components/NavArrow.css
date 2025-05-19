@@ -1,0 +1,16 @@
+/* src/components/NavArrow.css */
+.nav-arrow {
+  display: flex; /* Still useful for potential future alignment of image */
+  align-items: center;
+  justify-content: center; /* Center the image within its container */
+  cursor: pointer;
+  box-sizing: border-box;
+  /* Removed absolute positioning here */
+}
+
+.arrow-icon {
+  width: 100%; /* Image fills its container */
+  height: 100%; /* Image fills its container */
+  object-fit: contain; /* Ensures the image fits without cropping */
+  display: block; /* Remove extra space below image */
+}
