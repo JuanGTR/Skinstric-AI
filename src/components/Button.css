@@ -14,11 +14,3 @@
   border: 1px solid var(--color-dark-text); /* Default border color (now black) */
 }
 
-.enter-code-button {
-  width: 120px;
-  height: 35px;
-  padding: 8px 16px; /* From Figma */
-  background: black !important;   /* FORCE BLACK BACKGROUND */
-  color: white !important; /* FORCE WHITE TEXT */
-  border: 1px solid black !important; /* FORCE BLACK BORDER */
-}

@@ -12,12 +12,12 @@
 }
 
 .dotted-triangle-left {
-  top: 80px; /* Adjusted vertically to align with the buttons/center content */
+  top: 65px; /* Adjusted vertically to align with the buttons/center content */
   left: -350px; /* Pushes the left edge off-screen, bringing the right corner in */
 }
 
 .dotted-triangle-right {
-  top: 80px; /* Adjusted vertically, symmetrical to left */
+  top: 65px; /* Adjusted vertically, symmetrical to left */
   right: -350px; /* Pushes the right edge off-screen, bringing the left corner in */
   left: unset; 
 }

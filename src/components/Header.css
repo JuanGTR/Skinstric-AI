@@ -26,10 +26,6 @@
   color: var(--color-dark-text); /* Black text */
 }
 
-.main-nav {
-  /* No longer absolute positioning */
-}
-
 .nav-item-intro {
   font-family: 'Roobert TRIAL', sans-serif;
   font-weight: 400; /* Regular */
@@ -38,4 +34,13 @@
   opacity: 0.6;
   color: var(--color-dark-text); /* Black text */
   text-transform: uppercase;
+}
+
+.enter-code-button {
+  width: 125px;
+  height: 35px;
+  padding: 8px 16px; /* From Figma */
+  background: black !important;   /* FORCE BLACK BACKGROUND */
+  color: white !important; /* FORCE WHITE TEXT */
+  border: 1px solid black !important; /* FORCE BLACK BORDER */
 }
