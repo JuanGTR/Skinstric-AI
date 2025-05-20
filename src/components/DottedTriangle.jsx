@@ -1,10 +1,29 @@
+// src/components/DottedTriangle.jsx
 import React from 'react';
 import './DottedTriangle.css';
 
-function DottedTriangle({ type }) {
-  // Styles for positioning will be entirely in CSS now
+function DottedTriangle({ type, isHovered, onHoverChange, onClick, hidden }) {
+  const triangleClassName = `
+    dotted-triangle 
+    dotted-triangle-${type} 
+    ${isHovered ? 'dotted-triangle-hovered' : ''} 
+    ${hidden ? 'dotted-triangle-hidden' : ''}
+  `;
+
   return (
-    <div className={`dotted-triangle dotted-triangle-${type}`}></div>
+    <div
+      className={triangleClassName.trim()}
+      onMouseEnter={() => onHoverChange(true)}
+      onMouseLeave={() => onHoverChange(false)}
+      onClick={onClick}
+    >
+      {isHovered && (
+        <>
+          <div className="triangle-clone offset-up-left" />
+          <div className="triangle-clone offset-down-right" />
+        </>
+      )}
+    </div>
   );
 }
 

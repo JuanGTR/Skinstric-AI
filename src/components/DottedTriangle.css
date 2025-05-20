@@ -5,19 +5,62 @@
   height: 602px;
   border: 5px dotted var(--color-accent-gray);
   box-sizing: border-box;
-  pointer-events: none;
-  z-index: 0; 
-  transform-origin: center center; /* Rotate around the square's center */
-  transform: scale(0.65) rotate(45deg); /* Make smaller and rotate into a diamond */
+  pointer-events: auto; /* <-- ENSURES it receives mouse events */
+  cursor: pointer;    /* <-- ADD THIS: Changes cursor to pointer on hover */
+  z-index: 0;
+  transform-origin: center center;
+  transform: scale(0.65) rotate(45deg);
+
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .dotted-triangle-left {
-  top: 65px; /* Adjusted vertically to align with the buttons/center content */
-  left: -350px; /* Pushes the left edge off-screen, bringing the right corner in */
+  top: 75px;
+  left: -350px;
 }
 
 .dotted-triangle-right {
-  top: 65px; /* Adjusted vertically, symmetrical to left */
-  right: -350px; /* Pushes the right edge off-screen, bringing the left corner in */
-  left: unset; 
+  top: 75px;
+  right: -350px;
+  left: unset;
+}
+
+.dotted-triangle-hovered {
+  transform: scale(0.7) rotate(45deg);
+  border-color: #555; /* Darker gray */
+}
+
+.dotted-triangle {
+  /* your existing styles... */
+  opacity: 1;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.dotted-triangle-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Clones to appear on hover */
+.dotted-triangle .triangle-clone {
+  position: absolute;
+  width: 602px;
+  height: 602px;
+  border: 5px dotted var(--color-accent-gray);
+  opacity: 0.8;
+  pointer-events: none;
+  transform: scale(1.1) rotate(0deg); /* EXACTLY like the main one */
+  transform-origin: center center;
+  z-index: -1;
+}
+
+/* Offsets for subtle duplicated movement */
+.dotted-triangle .triangle-clone.offset-up-left {
+  top: -15px;
+  left: -5px;
+}
+
+.dotted-triangle .triangle-clone.offset-down-right {
+  top: 5px;
+  left: -25px;
 }

@@ -36,6 +36,10 @@
   text-transform: uppercase;
 }
 
+.nav-item-intro:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
 .enter-code-button {
   width: 125px;
   height: 35px;
@@ -43,4 +47,11 @@
   background: black !important;   /* FORCE BLACK BACKGROUND */
   color: white !important; /* FORCE WHITE TEXT */
   border: 1px solid black !important; /* FORCE BLACK BORDER */
+}
+
+.enter-code-button:hover {
+  background: white !important; /* FORCE WHITE BACKGROUND */
+  color: black !important; /* FORCE BLACK TEXT */
+  border: 1px solid black !important; /* FORCE BLACK BORDER */
+  cursor: pointer;
 }

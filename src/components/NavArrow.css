@@ -1,15 +1,32 @@
+/* src/components/NavArrow.css */
 .nav-arrow {
-  display: flex; /* Still useful for potential future alignment of image */
+  display: flex;
   align-items: center;
-  justify-content: center; /* Center the image within its container */
-  cursor: pointer;
+  justify-content: center;
+  /* cursor: pointer; <-- You might remove this if the arrow isn't directly clickable visually */
   box-sizing: border-box;
-  /* Removed absolute positioning here */
+  pointer-events: none; /* <-- ENSURES it DOES NOT receive mouse events */
 }
 
 .arrow-icon {
-  width: 100%; /* Image fills its container */
-  height: 100%; /* Image fills its container */
-  object-fit: contain; /* Ensures the image fits without cropping */
-  display: block; /* Remove extra space below image */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow-icon-hovered {
+  transform: scale(2);
+  
+}
+
+.nav-arrow {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.nav-arrow-hidden {
+  opacity: 0;
+  pointer-events: none;
 }

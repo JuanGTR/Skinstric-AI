@@ -1,21 +1,16 @@
+// src/App.jsx
 import React from 'react';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import FooterText from './components/FooterText';
-import DottedTriangle from './components/DottedTriangle';
-import './index.css'; // Global styles
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './Pages/LandingPage';
 
 function App() {
   return (
-    <div className="app-container">
-      <Header />
-      <HeroSection />
-      <FooterText />
-
-      {/* Dotted Triangles - still positioned absolutely relative to app-container */}
-      <DottedTriangle type="left" />
-      <DottedTriangle type="right" />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        {/* Future routes here */}
+      </Routes>
+    </Router>
   );
 }
 
