@@ -1,5 +1,6 @@
 // src/components/HeroSection.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavArrow from './NavArrow';
 import './HeroSection.css';
 import leftArrowPng from '../assets/images/button-left.png';
@@ -7,9 +8,12 @@ import rightArrowPng from '../assets/images/Right-Button.png';
 import DottedTriangle from './DottedTriangle';
 import rightArrowHoverPng from '../assets/images/hover-button.png';
 
+
 function HeroSection() {
   const [isLeftArrowHovered, setIsLeftArrowHovered] = useState(false);
   const [isRightArrowHovered, setIsRightArrowHovered] = useState(false);
+  const navigate = useNavigate();
+
 
   // Define what happens when the left dotted triangle is clicked
   const handleLeftDottedTriangleClick = () => {
@@ -20,9 +24,7 @@ function HeroSection() {
 
   // Define what happens when the right dotted triangle is clicked
   const handleRightDottedTriangleClick = () => {
-    console.log("Right dotted line clicked!");
-    // You can add your desired navigation or other actions here, e.g.:
-    // window.location.href = '/right-page';
+    navigate('/input');
   };
 
   return (
