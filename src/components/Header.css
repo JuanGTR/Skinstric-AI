@@ -5,7 +5,6 @@
   display: flex;
   justify-content: space-between; /* Pushes left group and button apart */
   align-items: center;
-  margin-bottom: 200px; /* Space before HeroSection (361px headline top - 23px header top - 16px logo height) */
 }
 
 .header-left-group {

@@ -3,9 +3,10 @@
   display: flex;
   justify-content: space-between; /* Pushes arrows to edges, centers headline */
   align-items: center;
-  padding: 0 32px; /* Match header padding for consistent side spacing */
+  padding: 0 48px; /* Match header padding for consistent side spacing */
   box-sizing: border-box;
   margin-bottom: 30px; /* Estimated space before footer: 862 - 458(arrow top) - 44(arrow height) = 360, need to balance for natural flow */
+  margin-top: 200px;
 }
 
 .hero-headline {

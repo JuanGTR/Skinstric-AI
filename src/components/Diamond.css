@@ -1,0 +1,80 @@
+/* Base Diamond styling - NOW MATCHING .dotted-background */
+.diamond {
+  position: absolute; /* Matches dotted-background */
+  width: 602px; /* Matches dotted-background */
+  height: 602px; /* Matches dotted-background */
+  border: 5px dotted var(--color-accent-gray, #888); /* Matches dotted-background, added fallback color */
+  /* Initial transform for the diamond shape and scale */
+  transform: scale(0.65) rotate(45deg); /* Matches dotted-background */
+  z-index: 0; /* Matches dotted-background */
+  pointer-events: auto; /* Changed from 'none' as this is a clickable component */
+  top: 1%; /* Matches dotted-background */
+
+  /* Keep these for interaction and layout */
+  background-color: transparent; /* Make background transparent to show dotted border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Smooth transition for rotation, scale, and shadow */
+  transform-style: preserve-3d; /* For consistent 3D transforms */
+}
+
+.diamond-hovered {
+  /* Apply additional rotation and scale on top of the base transform */
+  transform: scale(0.715) rotate(135deg); /* (0.65 * 1.1) = 0.715, and (45 + 90) = 135deg */
+  box-shadow: 0 0 25px grey
+}
+
+/* Hidden state */
+.diamond-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Styles for the clones */
+.diamond-clone {
+  position: absolute;
+  background-color: transparent; /* Transparent to show the dotted border */
+
+  width: 608px; /* Size of the clones */
+  height: 608px; /* Size of the clones */
+  border-radius: 4px; /* Slightly rounded corners */
+    border: 5px dotted var(--color-accent-gray, #888); /* Matches dotted-background, added fallback color */
+
+  opacity: 0; /* Clones start hidden */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade-in/out */
+  /* Counter-rotate to appear straight initially relative to the diamond's 45deg */
+  transform: rotate(-45deg);
+}
+
+/* Clones become visible when the main diamond is hovered */
+.diamond-hovered .diamond-clone {
+  opacity: 1;
+}
+
+/* Positioning for the clones (adjust these values to place them where you like) */
+.clone-clockwise {
+  animation: spinClockwise 6s linear infinite;
+}
+
+.clone-counter-clockwise {
+  animation: spinCounterClockwise 6s linear infinite;
+}
+
+@keyframes spinClockwise {
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(315deg);
+  }
+}
+
+@keyframes spinCounterClockwise {
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(-405deg);
+  }
+}
