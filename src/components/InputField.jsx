@@ -3,6 +3,8 @@ import BackButton from './BackButton';
 import './InputField.css';
 import ProceedButton from '../assets/images/proceed-button.png'; // Ensure this path is correct
 import Diamond from './Diamond';
+import { useNavigate } from 'react-router-dom';
+
 
 const nameRegex = /^[A-Za-z\s'-]+$/;
 const locationRegex = /^[A-Za-z\s'-]+$/;
@@ -14,6 +16,8 @@ export default function InputField() {
   const [error, setError] = useState('');
   const [showErrorOnSubmit, setShowErrorOnSubmit] = useState(false); // New state for error visibility
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+  
 
   // State to track if location has been typed
   const [locationTyped, setLocationTyped] = useState(false);
@@ -51,10 +55,9 @@ export default function InputField() {
 
         if (data.success) {
           localStorage.setItem('skinstricUser', JSON.stringify({ name, location }));
-          // Redirect to next page here if needed
           setError(''); // Clear error on success
           setShowErrorOnSubmit(false); // Reset error visibility
-          // window.location.href = '/next-page'; // Example redirect
+          navigate('/face-input');
         } else {
           setError(data.message || 'Submission failed.');
         }

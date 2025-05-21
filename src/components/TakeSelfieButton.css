@@ -1,0 +1,18 @@
+.selfie-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.selfie-button-image {
+  width: 350px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.selfie-button-image:hover {
+  transform: scale(1.05);
+}

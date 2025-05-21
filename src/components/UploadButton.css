@@ -1,0 +1,23 @@
+.upload-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem; /* space below header text */
+  margin-bottom: 1rem;
+}
+
+.upload-button-image {
+  width: 350px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.upload-button-image:hover {
+  transform: scale(1.05);
+  filter: brightness(0);
+}
+
+.upload-input-hidden {
+  display: none;
+}
