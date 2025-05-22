@@ -6,7 +6,7 @@ import InputPage from './Pages/InputPage';
 import FaceInputPage from './Pages/FaceInputPage';
 import LoadingPage from './Pages/LoadingPage';
 import AnalysisPage from './Pages/AnalysisPage';
-import ResultsPage from './Pages/ResultsPage';
+import DemographicsPage from './Pages/DemographicsPage';
 
 
 
@@ -20,7 +20,7 @@ function App() {
         <Route path="/face-input" element={<FaceInputPage />} />
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/analysis" element={<AnalysisPage />} />
-        <Route path="/results" element={<ResultsPage />} />
+        <Route path="/results" element={<DemographicsPage />} />
 
       </Routes>
     </Router>

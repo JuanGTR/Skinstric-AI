@@ -1,0 +1,189 @@
+/* DemographicsPage.css */
+
+.demographics-page {
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #000;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.title-section h1 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.title-section h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0.25rem 0;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+.main-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.category-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.category-button {
+  background-color: #eee;
+  border: none;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.category-button:hover {
+  background-color: #ddd;
+}
+
+.category-button.selected {
+  background-color: #111;
+  color: #fff;
+}
+
+.prediction-label {
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.category-label {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+.prediction-display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  padding: 2rem;
+}
+
+.prediction-display h3 {
+  font-size: 1.75rem;
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+}
+
+.circle-confidence {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.note {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.option-list {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.option-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.option-item.highlight {
+  background-color: #111;
+  color: #fff;
+  font-weight: bold;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.back-button {
+  border: 1px solid #000;
+  background: transparent;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.reset-button,
+.confirm-button {
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.reset-button {
+  background: #fff;
+  border: 1px solid #000;
+}
+
+.confirm-button {
+  background: #000;
+  color: #fff;
+}
+
+.reset-button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.confirm-button:hover {
+  background: #333;
+}

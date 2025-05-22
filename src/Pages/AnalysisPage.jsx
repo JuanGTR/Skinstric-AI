@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './AnalysisPage.css';
+import getsummary from '../assets/images/getsummary.png'
+import back from '../assets/images/back-button.png'
 
 export default function AnalysisPage() {
   const navigate = useNavigate();
@@ -22,10 +24,12 @@ export default function AnalysisPage() {
 
       <h2 className="analysis-title">A.I Analysis</h2>
       <p className="analysis-subtitle">
-        AI has estimated the following. Fix estimated information if needed.
+        AI has estimated the following. <br />Fix estimated information if needed.
       </p>
 
       <div className="dotted-square" />
+      <div className="dotted-square-two" />
+      <div className="dotted-square-three" />
 
       <div className="diamond-button-container">
         <div className="diamond-button" onClick={() => handleNavigate('Demographics')}>
@@ -43,8 +47,12 @@ export default function AnalysisPage() {
       </div>
 
       <div className="footer-buttons">
-        <button onClick={() => navigate(-1)}>Back</button>
-        <button onClick={() => alert('Get Summary clicked')}>Get Summary</button>
+        <button onClick={() => navigate(-1)}>
+          <img src={back} alt="" />
+        </button>
+        <button onClick={() => alert('Get Summary clicked')}>
+          <img src={getsummary} alt="Get Summary" className="get-summary-icon" />
+        </button>
       </div>
     </div>
   );
