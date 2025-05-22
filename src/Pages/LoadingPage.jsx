@@ -42,8 +42,10 @@ export default function LoadingPage() {
         const data = await response.json();
         console.log('API response:', data);
 
-        if (data.message?.includes('SUCCESS')) {
-          navigate('/results', { state: { resultData: data.data } });
+        if (data.message?.toLowerCase().includes('successfully')) {
+ setTimeout(() => {
+        navigate('/analysis', { state: { resultData: data.data } });
+      }, 2000);
         } else {
           console.error('API error:', data.message);
           // Optional: show error screen or retry
@@ -60,10 +62,10 @@ export default function LoadingPage() {
   return (
     <div className="loading-page">
       <h2 className="loading-title">Preparing your Analysis</h2>
-      <div className="diamond-wrapper">
-        <div className="diamond spinning-diamond" />
-        <div className="diamond-clone clone-clockwise" />
-        <div className="diamond-clone clone-counter-clockwise" />
+      <div className="diamonded-wrapper">
+        <div className="diamonded spinning-diamonded" />
+        <div className="diamonded-clone clone-clockwise" />
+        <div className="diamonded-clone clone-counter-clockwise" />
       </div>
     </div>
   );

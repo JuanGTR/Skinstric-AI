@@ -1,0 +1,71 @@
+/* AnalysisPage.css */
+
+.analysis-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  background-color: white;
+}
+
+.analysis-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.analysis-subtitle {
+  font-size: 1rem;
+  color: gray;
+  margin-bottom: 2rem;
+}
+
+.dotted-square {
+  position: absolute;
+  width: 602px;
+  height: 602px;
+  border: 5px dotted #888;
+  transform: rotate(0deg);
+  z-index: 0;
+}
+
+.diamond-button-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.diamond-button {
+  width: 79px;
+  height: 79px;
+  background-color: #ccc;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.diamond-button:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transform: rotate(45deg) scale(1.05);
+}
+
+.diamond-button span {
+  transform: rotate(-45deg);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-top: 3rem;
+}

@@ -7,15 +7,16 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function FaceInputPage() {
+  const navigate = useNavigate();
   const handleImageSelected = (file) => {
     console.log('Image selected:', file);
     // Later: convert to base64 and send to API
+    navigate('/loading', { state: { image: file } })
   };
 
   return (
     <div className="page">
       <Header />
-
       <div className="main-content">
         <h3 
           className="title"
