@@ -1,14 +1,15 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './AnalysisPage.css';
-import getsummary from '../assets/images/getsummary.png'
-import back from '../assets/images/back-button.png'
+import getsummary from '../assets/images/getsummary.png';
+import back from '../assets/images/back-button.png';
 
 export default function AnalysisPage() {
   const navigate = useNavigate();
+  const location = useLocation(); // capture incoming state
 
   const handleNavigate = (section) => {
     if (section === 'Demographics') {
-      navigate('/results'); // Update this if needed
+      navigate('/results', { state: location.state }); // pass resultData forward
     } else {
       alert(`${section} button clicked — functionality coming soon`);
     }
@@ -48,7 +49,7 @@ export default function AnalysisPage() {
 
       <div className="footer-buttons">
         <button onClick={() => navigate(-1)}>
-          <img src={back} alt="" />
+          <img src={back} alt="Back" />
         </button>
         <button onClick={() => alert('Get Summary clicked')}>
           <img src={getsummary} alt="Get Summary" className="get-summary-icon" />
