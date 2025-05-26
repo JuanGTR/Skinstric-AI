@@ -1,0 +1,134 @@
+/* src/pages/FaceInputPage.css */
+
+/* ——— Root & Container ——— */
+.face-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--background-color-light, #fff);
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ——— Header ——— */
+.face-header {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background: transparent;
+  z-index: 2;
+}
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.logo {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-color-primary, #1a1b1c);
+}
+.main-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-item-intro {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  opacity: 0.6;
+  text-transform: uppercase;
+  color: var(--text-color-primary, #1a1b1c);
+  text-decoration: none;
+}
+.nav-item-intro:hover {
+  opacity: 1;
+}
+
+/* ——— Main Area ——— */
+.face-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+.face-title {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  text-transform: uppercase;
+  color: var(--text-color-primary, #1a1b1c);
+  margin: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ——— Buttons Row ——— */
+.face-buttons {
+  display: flex;
+  justify-content: center;
+  gap: clamp(2rem, 10vw, 20rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ——— Back Button ——— */
+.face-back-button {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  width: 97px;    /* match your back-button size */
+  height: 44px;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.face-back-button:hover {
+  transform: scale(1.1);
+  filter: brightness(0.8);
+}
+
+/* ——— Responsive (≤768px) ——— */
+@media (max-width: 768px) {
+  .face-main {
+    padding: 1.5rem 0.5rem;
+  }
+  .face-title {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .face-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;           /* tighten the gap if you like */
+  }
+
+  /* Force each button wrapper to a max width and prevent growing */
+  .face-buttons > * {
+    width: 250px;        /* or whatever smaller width you chose */
+    flex: none;
+  }
+
+  /* Make the <img> inside scale to its wrapper */
+  .face-buttons > * img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  }
+  .face-back-button {
+    bottom: 1rem;
+    left: 1rem;
+  }
+

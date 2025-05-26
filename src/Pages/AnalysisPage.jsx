@@ -27,11 +27,10 @@ export default function AnalysisPage() {
       <p className="analysis-subtitle">
         AI has estimated the following. <br />Fix estimated information if needed.
       </p>
-
+      <div className="dotted-container">
       <div className="dotted-square" />
       <div className="dotted-square-two" />
       <div className="dotted-square-three" />
-
       <div className="diamond-button-container">
         <div className="diamond-button" onClick={() => handleNavigate('Demographics')}>
           <span>Demographics</span>
@@ -46,6 +45,7 @@ export default function AnalysisPage() {
           <span>Cosmetic Concerns</span>
         </div>
       </div>
+    </div>
 
       <div className="footer-buttons">
         <button onClick={() => navigate(-1)}>

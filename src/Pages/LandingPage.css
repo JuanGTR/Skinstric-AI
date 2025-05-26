@@ -1,0 +1,250 @@
+/* src/pages/LandingPage.css */
+
+/* Container */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ---- Header ---- */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.logo {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-dark-text);
+}
+.main-nav { list-style: none; margin: 0; padding: 0; }
+.nav-item-intro {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  opacity: 0.6;
+  text-transform: uppercase;
+  color: var(--color-dark-text);
+  text-decoration: none;
+}
+.nav-item-intro:hover { opacity: 1; }
+.enter-code-button {
+  width: 125px;
+  height: 35px;
+  padding: 8px 16px;
+  background: black;
+  color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  z-index: 1;
+  right: 5rem;
+  position: relative;
+}
+.enter-code-button:hover {
+  background: white;
+  color: black;
+}
+
+/* ---- Hero Section ---- */
+.hero-section {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 48px 30px; /* topspace & bottom spacing */
+  box-sizing: border-box;
+}
+.hero-headline {
+  max-width: 680px;
+  width: 100%;
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 300;
+  font-size: 128px;
+  line-height: 120px;
+  letter-spacing: -0.07em;
+  text-align: center;
+  color: var(--color-dark-text);
+  margin: 0;
+  transition: transform 0.3s ease-in-out;
+}
+.shift-left { transform: translateX(-25rem); }
+.shift-right { transform: translateX(2rem); }
+
+/* Nav arrows */
+.nav-arrow {
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  transition: opacity 0.2s;
+}
+.nav-arrow.left { left: 48px; }
+.nav-arrow.right { right: 48px; }
+.hidden { opacity: 0; pointer-events: none; }
+
+/* -----------------------------
+   Common for both triangles
+   ----------------------------- */
+.dotted-triangle {
+  position: absolute;
+  /* fluid sizing: min 200px, ideal 30vw, max 602px */
+  width: clamp(200px, 30vw, 402px);
+  height: clamp(200px, 30vw, 402px);
+  border: 5px dotted var(--color-accent-gray);
+  box-sizing: border-box;
+  cursor: pointer;
+  pointer-events: auto;
+  transform-origin: center center;
+  transition: 
+    transform 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  z-index: 0;
+}
+
+/* -----------------------------
+   Left triangle: half off left
+   ----------------------------- */
+.dotted-triangle-left {
+  top: auto;
+  left: 0;
+  /* shift left by half its own width */
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.dotted-triangle-left.dotted-triangle-hovered {
+  /* bump out slightly and darken border */
+  transform: translateX(-50%) rotate(45deg) scale(1.05);
+  border-color: #555;
+}
+
+/* -----------------------------
+   Right triangle: half off right
+   ----------------------------- */
+.dotted-triangle-right {
+  top: auto;
+  right: 0;
+  transform: translateX(50%) rotate(45deg);
+}
+
+.dotted-triangle-right.dotted-triangle-hovered {
+  transform: translateX(50%) rotate(45deg) scale(1.05);
+  border-color: #555;
+}
+
+/* -----------------------------
+   Hidden state (both)
+   ----------------------------- */
+.dotted-triangle-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* -----------------------------
+   Hover clones
+   ----------------------------- */
+.triangle-clone {
+  position: absolute;
+  width: clamp(200px, 30vw, 422px);
+  height: clamp(200px, 30vw, 422px);
+  border: 5px dotted var(--color-accent-gray);
+  opacity: 0.8;
+  pointer-events: none;
+  transform-origin: center center;
+  /* matches the hovered scale/rotation */
+  transform: rotate(0deg) scale(1.05);
+  z-index: -1;
+}
+
+.offset-up-left {
+  top: 0px;
+  left: -35px;
+}
+
+.offset-down-right {
+  top: -20px;
+  left: -15px;
+}
+
+/* ---- Footer ---- */
+.footer-text-container {
+  margin: auto auto 32px 32px;
+  box-sizing: border-box;
+}
+.footer-text-content {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--color-dark-text);
+  margin: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1200px) {
+  .hero-headline {
+    font-size: 96px;
+    line-height: 90px;
+  }
+  
+}
+@media (max-width: 768px) {
+  /* 1. Stack everything vertically */
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 24px 30px; /* keep your spacing */
+    position: relative;       /* ensure children flow normally */
+  }
+
+  /* 2. Headline size adjustments */
+  .hero-headline {
+    font-size: 64px;
+    line-height: 60px;
+  }
+
+  /* 3. Nav arrows become normal flow elements */
+  .nav-arrow {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    margin: 1rem 0;      /* space above and below */
+  }
+
+  /* 4. Hide dotted triangles entirely */
+  .dotted-triangle {
+    display: none !important;
+  }
+
+  /* 5. Keep footer margin tweak */
+  .footer-text-container {
+    margin-left: 16px;
+  }
+}
+.input-page-input-field {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}

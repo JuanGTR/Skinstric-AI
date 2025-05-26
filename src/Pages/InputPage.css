@@ -1,0 +1,188 @@
+/* src/pages/InputPage.css */
+
+/* -------------------------
+   Global Resets & Variables
+   ------------------------- */
+html, body {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+:root {
+  --bg-light: #fff;
+  --accent-gray: #888;
+  --text-primary: #1a1b1c;
+}
+
+/* -------------------------
+   Container & Header
+   ------------------------- */
+.input-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg-light);
+}
+.input-page-header {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input-page-header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.input-page-logo {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+.input-page-nav-item-intro {
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-size: 14px;
+  opacity: 0.6;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.input-page-nav-item-intro:hover {
+  opacity: 1;
+}
+
+/* -------------------------
+   Form & Diamond
+   ------------------------- */
+.input-page-form-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: inherit;
+}
+.input-page-diamond {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg) scale(0.65);
+  width: clamp(250px, 80vw, 602px);
+  height: clamp(250px, 80vw, 602px);
+  border: 5px dotted var(--accent-gray);
+}
+.input-page-diamond-clone {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border: 5px dotted var(--accent-gray);
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+}
+.input-page-clone-clockwise { animation: spinClockwise 12s linear infinite; }
+.input-page-clone-counter-clockwise { animation: spinCounterClockwise 12s linear infinite; }
+@keyframes spinClockwise   { from {transform: rotate(-45deg);} to {transform: rotate(315deg);} }
+@keyframes spinCounterClockwise { from {transform: rotate(-45deg);} to {transform: rotate(-405deg);} }
+
+/* -------------------------
+   Text Prompts & Input
+   ------------------------- */
+.input-page-to-start-analysis {
+  position: absolute; top: 2%; left: 2%;
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-weight: 600; font-size: 16px; text-transform: uppercase;
+  color: var(--text-primary); z-index: 1;
+}
+.input-page-click-to-type {
+  position: absolute; top: 35%; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-size: 18px; text-transform: uppercase;
+  color: var(--text-primary); opacity: 0.4; z-index: 1;
+  pointer-events: none;
+}
+.input-page-input-field {
+  position: absolute; top: 44%; left: 50%;
+  transform: translateX(-50%);
+  width: clamp(200px, 80vw, 530px);
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-size: clamp(24px, 5vw, 50px);
+  line-height: 1.2; text-align: center;
+  background: transparent; text-decoration: underline 2px;
+  border: none; outline: none; z-index: 1;
+}
+.input-page-input-field::placeholder {
+  font-size:2.5rem; /* desktop placeholder size */
+  opacity: 0.7;
+}
+.input-page-error-text {
+  position: absolute;
+  top: calc(44% + 4rem);
+  left: 50%; transform: translateX(-50%);
+  color: red;
+  font-family: 'Roobert TRIAL', sans-serif;
+  font-size: 0.95rem; z-index: 1;
+}
+
+/* -------------------------
+   Button Container — always present
+   ------------------------- */
+.input-page-button-row {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;  /* desktop: ends */
+  padding: 0 4%;                   /* 4% inset on each side */
+  z-index: 1;
+}
+
+/* Button basics */
+.input-page-back-button,
+.input-page-proceed-button {
+  width: auto;
+  height: 44px;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+/* Hover effects */
+.input-page-back-button:hover,
+.input-page-proceed-button:hover {
+  transform: scale(1.1);
+  filter: brightness(0.8);
+}
+
+/* -------------------------
+   Mobile Overrides (≤768px)
+   ------------------------- */
+@media (max-width: 768px) {
+  .input-page-form-container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .input-page-diamond {
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.5);
+  }
+  /* Centered row + gap */
+  .input-page-button-row {
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+  }
+  .input-page-back-button,
+  .input-page-proceed-button {
+    position: static !important;
+    width: auto; height: 44px;
+  }
+  /* mobile placeholder smaller */
+  .input-page-input-field::placeholder {
+    font-size: 1rem;
+  }
+}

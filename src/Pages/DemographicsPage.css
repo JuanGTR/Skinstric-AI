@@ -1,19 +1,20 @@
-/* DemographicsPage.css */
-
 .demographics-page {
   font-family: 'Helvetica Neue', sans-serif;
   color: #000;
   padding: 2rem;
   background-color: #fff;
+  min-height: 100vh;
 }
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   color: #888;
   margin-bottom: 1rem;
+  gap: 0.5rem;
+  
 }
 
 .title-section h1 {
@@ -38,12 +39,16 @@
 .main-content {
   display: flex;
   gap: 2rem;
+  height: 60vh;
 }
 
 .category-selector {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  min-width: 18vh;
+  height: 100%;           /* Make it stretch to parent height */
+  align-self: stretch;    /* Ensure it stretches in flex layouts */
 }
 
 .category-button {
@@ -53,6 +58,9 @@
   text-align: left;
   cursor: pointer;
   transition: background-color 0.2s;
+  position: relative;
+  border-top: 2px solid #000;
+
 }
 
 .category-button:hover {
@@ -62,6 +70,26 @@
 .category-button.selected {
   background-color: #111;
   color: #fff;
+}
+
+.category-button.selected::before {
+  content: '♦';
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  color: #111;
+  font-size: 1rem;
+  animation: pulseDiamond 1s infinite alternate;
+}
+
+@keyframes pulseDiamond {
+  from {
+    transform: translateY(-50%) rotate(45deg) scale(1);
+  }
+  to {
+    transform: translateY(-50%) rotate(45deg) scale(1.2);
+  }
 }
 
 .prediction-label {
@@ -78,10 +106,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: #f7f7f7;
   padding: 2rem;
+  border-top: #000 2px solid;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
 }
 
 .prediction-display h3 {
@@ -96,10 +125,20 @@
   border: 2px solid #000;
   border-radius: 50%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  animation: glowPulse 2s ease-in-out infinite;
+  margin-left: auto; /* Pushes the element as far right as possible in a flex container */
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
 }
 
 .note {
@@ -108,9 +147,11 @@
 }
 
 .option-list {
-  width: 250px;
+  width: 300px;
   background-color: #f4f4f4;
   padding: 1rem;
+    border-top: 2px solid #000;
+
 }
 
 .option-header {
@@ -127,30 +168,51 @@
   padding: 0.5rem 0;
   font-size: 0.875rem;
   border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  position: relative;
 }
 
 .option-item.highlight {
   background-color: #111;
   color: #fff;
   font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.option-item.highlight::before {
+  content: '♦';
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  color: #111;
+  font-size: 1rem;
+  animation: pulseDiamond 1s infinite alternate;
 }
 
 .footer-buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
-.back-button {
-  border: 1px solid #000;
-  background: transparent;
+.back-button,
+.reset-button,
+.confirm-button {
   padding: 0.75rem 1.5rem;
   cursor: pointer;
+  border: 2px solid #000;
+  background: transparent;
+  color: #000;
+  font-weight: 600;
   transition: background 0.3s, color 0.3s;
+  border-top: #000 2px solid;
 }
 
-.back-button:hover {
+.back-button:hover,
+.reset-button:hover,
+.confirm-button:hover {
   background: #000;
   color: #fff;
 }
@@ -159,31 +221,105 @@
   display: flex;
   gap: 1rem;
 }
+.circle-confidence {
+  width: 250px;
+  height: 250px;
+  margin-bottom: 1rem;
+}
 
-.reset-button,
-.confirm-button {
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
-  border: none;
+.confidence-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.confidence-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.confidence-fill {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.6s ease;
+}
+
+.confidence-text {
+  fill: #000;
+  font-size: 0.35em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .category-selector {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: auto;
+    height: auto;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .category-button {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .prediction-display {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+  .circle-confidence {
+    width: 66px;
+    height: 66px;
+    margin-bottom: -13rem;
+    align-self: flex-start;
+  }
+
+  .confidence-text {
+    font-size: 0.4em;
+  }
+
+  .option-list {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  .footer-buttons {
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .back-button,
+  .reset-button,
+  .confirm-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+.prediction-display h3 {
+  font-size: 1.5rem;
+  margin-bottom: -4rem;
+}
+.note {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 6rem;
+}
+h2.demographics-title {
+  font-size: 2.5rem;
   font-weight: bold;
-  transition: background 0.3s;
-}
-
-.reset-button {
-  background: #fff;
-  border: 1px solid #000;
-}
-
-.confirm-button {
-  background: #000;
-  color: #fff;
-}
-
-.reset-button:hover {
-  background: #000;
-  color: #fff;
-}
-
-.confirm-button:hover {
-  background: #333;
+  margin-bottom: 1rem;
 }
