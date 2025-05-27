@@ -1,4 +1,3 @@
-// UploadButton.jsx
 import UploadImg from '../assets/images/gallery.png';
 import '../components/UploadButton.css';
 

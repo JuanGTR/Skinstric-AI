@@ -1,4 +1,3 @@
-// src/pages/InputPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import proceedImg from '../assets/images/proceed-button.png';

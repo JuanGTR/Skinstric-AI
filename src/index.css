@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'Roobert TRIAL';
-  src: url('./assets/fonts/Roobert-Trial-Light.woff2') format('woff2'); /* Adjust filename if needed */
+  src: url('./assets/fonts/RoobertTRIAL-Light.woff2') format('woff2'); /* Adjust filename if needed */
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: 'Roobert TRIAL';
-  src: url('./assets/fonts/Roobert-Trial-Regular.woff2') format('woff2'); /* Adjust filename if needed */
+  src: url('./assets/fonts/RoobertTRIAL-Regular.woff2') format('woff2'); /* Adjust filename if needed */
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Roobert TRIAL';
-  src: url('./assets/fonts/Roobert-Trial-Semibold.woff2') format('woff2'); /* Adjust filename if needed */
+  src: url('./assets/fonts/RoobertTRIAL-Bold.woff2') format('woff2'); /* Adjust filename if needed */
   font-weight: 600;
   font-style: normal;
 }
