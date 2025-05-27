@@ -256,6 +256,10 @@
   transform-origin: center;
 }
 @media (max-width: 768px) {
+  
+  .demographics-page {
+    overflow-y: auto;
+  }
   .main-content {
     flex-direction: column;
     height: auto;
