@@ -18,16 +18,15 @@
 }
 .header-left-group {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
 }
 .logo {
   font-family: 'Roobert TRIAL', sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 20px;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--color-dark-text);
+  padding-left: 2rem;
 }
 .main-nav { list-style: none; margin: 0; padding: 0; }
 .nav-item-intro {
@@ -49,7 +48,7 @@
   border: 1px solid black;
   cursor: pointer;
   z-index: 1;
-  right: 5rem;
+  right: 2rem;
   position: relative;
 }
 .enter-code-button:hover {

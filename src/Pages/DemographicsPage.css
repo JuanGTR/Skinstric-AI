@@ -6,7 +6,7 @@
   min-height: 100vh;
 }
 
-.header {
+.demographics-page .header {
   display: flex;
   justify-content: start;
   font-size: 0.75rem;
