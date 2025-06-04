@@ -80,3 +80,39 @@
     transform: rotate(-405deg);
   }
 }
+/* Responsive diamond styles */
+
+@media (max-width: 900px) {
+ .diamonded-wrapper {
+  width: min(70vw, 70vh, 500px);
+  height: min(70vw, 70vh, 500px);
+ }
+ .spinning-diamonded,
+ .diamonded-clone {
+  width: min(50vw, 50vh, 330px);
+  height: min(50vw, 50vh, 330px);
+  top: -165px;
+  left: 85px;
+ }
+}
+
+@media (max-width: 600px) {
+ .diamonded-wrapper {
+  width: min(90vw, 90vh, 360px);
+  height: min(90vw, 90vh, 360px);
+ }
+
+ .spinning-diamonded,
+ .diamonded-clone {
+  width: min(70vw, 70vh, 240px);
+  height: min(70vw, 70vh, 240px);
+  top: -120px;
+  left: 60px;
+ }
+
+ .loading-title {
+  font-size: 1.4rem;
+  margin-top: 20rem;
+  text-align: center;
+ }
+}

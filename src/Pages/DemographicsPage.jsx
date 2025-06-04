@@ -54,6 +54,8 @@ export default function DemographicsPage() {
         <span className="analysis-link">[ ANALYSIS ]</span>
       </header>
 
+      <div className="scrollable-content">
+
       <div className="title-section">
         <h1 className="analysis-title">A.I. ANALYSIS</h1>
         <h2 className="demographics-title">DEMOGRAPHICS</h2>
@@ -142,6 +144,7 @@ export default function DemographicsPage() {
           <button className="confirm-button">CONFIRM</button>
         </div>
       </footer>
+      </div>
     </div>
   );
 }

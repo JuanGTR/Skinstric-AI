@@ -109,7 +109,7 @@
   .face-buttons {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;           /* tighten the gap if you like */
+    gap: 0rem;           /* tighten the gap if you like */
   }
 
   /* Force each button wrapper to a max width and prevent growing */
@@ -127,7 +127,16 @@
 
   }
   .face-back-button {
-    bottom: 1rem;
-    left: 1rem;
+    bottom: 3rem;
+    left: 3rem;
   }
 
+  
+
+    .face-buttons .selfie-button-wrapper {
+      margin-bottom: 5px; /* Reduce the bottom margin of the first wrapper */
+    }
+
+    .face-buttons .upload-button-wrapper {
+      margin-top: 5px; /* Reduce the top margin of the second wrapper */
+    }

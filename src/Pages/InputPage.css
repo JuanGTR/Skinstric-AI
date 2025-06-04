@@ -183,4 +183,14 @@ html, body {
   .input-page-input-field::placeholder {
     font-size: 1rem;
   }
+  .input-page-click-to-type {
+    font-size: 1.5rem;
+    top: 20%; 
+  }
+  .input-page-input-field {
+    top: 45%;
+  }
+  .input-page-error-text {
+    top: 65%;
+  }
 }

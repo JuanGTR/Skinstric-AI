@@ -256,16 +256,45 @@
   transform-origin: center;
 }
 @media (max-width: 768px) {
-  
+  /* 1) Lock the page container to the viewport height and prevent it from scrolling */
   .demographics-page {
-    overflow-y: auto;
-  }
-  .main-content {
+    display: flex;
     flex-direction: column;
-    height: auto;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0; /* we’ll re-apply padding inside the scrollable area */
   }
 
-  .category-selector {
+  /* 2) Make the header fixed at the top */
+  .demographics-page .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;            /* 1rem top + 1rem bottom padding = 3rem total */
+    background-color: #fff;
+    z-index: 1000;
+    margin-bottom: 0;        /* remove any previous bottom margin */
+    padding: 1rem 2rem;      /* adjust left/right as needed */
+  }
+
+  /* 3) Everything below the header scrolls inside this wrapper */
+  .demographics-page .scrollable-content {
+    margin-top: 3rem;        /* match exactly the header’s total height */
+    flex: 1;                 /* fill remaining vertical space */
+    overflow-y: auto;        /* enable vertical scrolling */
+    padding: 1rem 2rem;      /* re-apply your original padding */
+  }
+
+  /* 4) Allow children to grow naturally (override any fixed heights) */
+  .demographics-page .main-content {
+    flex-direction: column;
+    height: auto;            /* override your previous height: 60vh; */
+    gap: 2rem;
+  }
+
+  .demographics-page .category-selector {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     min-width: auto;
@@ -274,56 +303,62 @@
     justify-content: center;
   }
 
-  .category-button {
+  .demographics-page .category-button {
     flex: 1 1 auto;
     text-align: center;
     font-size: 0.75rem;
     padding: 0.75rem;
   }
 
-  .prediction-display {
+  .demographics-page .prediction-display {
     padding: 1.5rem;
     margin-top: 1rem;
   }
-  .circle-confidence {
+
+  .demographics-page .circle-confidence {
     width: 66px;
     height: 66px;
     margin-bottom: -13rem;
     align-self: flex-start;
   }
 
-  .confidence-text {
+  .demographics-page .confidence-text {
     font-size: 0.4em;
   }
 
-  .option-list {
+  .demographics-page .option-list {
     margin-top: 1rem;
     padding: 1rem;
   }
 
-  .footer-buttons {
+  .demographics-page .footer-buttons {
     gap: 1rem;
     align-items: stretch;
   }
 
-  .back-button,
-  .reset-button,
-  .confirm-button {
+  .demographics-page .back-button,
+  .demographics-page .reset-button,
+  .demographics-page .confirm-button {
     width: 100%;
     text-align: center;
   }
+
+  /* Any other mobile-specific overrides below... */
+  .demographics-page .prediction-display h3 {
+    font-size: 1.5rem;
+    margin-bottom: -4rem;
+  }
+
+  .demographics-page .note {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 6rem;
+  }
+
+  .demographics-page h2.demographics-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
 }
-.prediction-display h3 {
-  font-size: 1.5rem;
-  margin-bottom: -4rem;
-}
-.note {
-  font-size: 0.75rem;
-  color: #888;
-  margin-top: 6rem;
-}
-h2.demographics-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
+
