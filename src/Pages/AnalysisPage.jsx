@@ -1,7 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import './AnalysisPage.css';
-import getsummary from '../assets/images/getsummary.png';
-import back from '../assets/images/back-button.png';
+import IconButton from '../components/IconButton';
 
 export default function AnalysisPage() {
   const navigate = useNavigate();
@@ -48,12 +47,8 @@ export default function AnalysisPage() {
     </div>
 
       <div className="footer-buttons">
-        <button onClick={() => navigate(-1)}>
-          <img src={back} alt="Back" />
-        </button>
-        <button onClick={() => alert('Get Summary clicked')}>
-          <img src={getsummary} alt="Get Summary" className="get-summary-icon" />
-        </button>
+       <IconButton label="BACK" onClick={() => navigate(-1)}/>
+      <IconButton label="GET SUMMARY" onClick={() => alert('Get Summary clicked')}/>
       </div>
     </div>
   );

@@ -109,7 +109,7 @@
   .face-buttons {
     flex-direction: column;
     align-items: center;
-    gap: 0rem;           /* tighten the gap if you like */
+    gap: 5rem;           /* tighten the gap if you like */
   }
 
   /* Force each button wrapper to a max width and prevent growing */
@@ -120,7 +120,7 @@
 
   /* Make the <img> inside scale to its wrapper */
   .face-buttons > * img {
-    width: 100%;
+    
     height: auto;
     display: block;
   }

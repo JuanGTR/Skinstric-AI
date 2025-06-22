@@ -1,12 +1,14 @@
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TakeSelfieButton.css';
-import SelfieImg from '../assets/images/camera.png';
+import SelfieImg from '../assets/images/camera-icon.png';
+import HoverTextImg from '../assets/images/camera-title.png'; // ← new text image
 
 export default function TakeSelfieButton() {
   const [showModal, setShowModal] = useState(false);
   const [cameraOn, setCameraOn] = useState(false);
   const [stream, setStream] = useState(null);
+  const [hovered, setHovered] = useState(false);
   const videoRef = useRef(null);
   const navigate = useNavigate();
 
@@ -29,9 +31,7 @@ export default function TakeSelfieButton() {
     }
   };
 
-  const handleDeny = () => {
-    setShowModal(false);
-  };
+  const handleDeny = () => setShowModal(false);
 
   const handleCapture = () => {
     if (!videoRef.current) return;
@@ -54,9 +54,7 @@ export default function TakeSelfieButton() {
 
   useEffect(() => {
     return () => {
-      if (stream) {
-        stream.getTracks().forEach(track => track.stop());
-      }
+      if (stream) stream.getTracks().forEach(track => track.stop());
     };
   }, [stream]);
 
@@ -64,12 +62,21 @@ export default function TakeSelfieButton() {
     <div className="selfie-button-wrapper">
       {!cameraOn && (
         <>
-          <img
-            src={SelfieImg}
-            alt="Take a Selfie"
-            className="selfie-button-image"
+          <div
+            className="selfie-button-diamond"
             onClick={handleClick}
-          />
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            <div className="square square-1" />
+            <div className="square square-2" />
+            <div className="square square-3" />
+            <img src={SelfieImg} alt="camera icon" className="camera-icon" />
+            {hovered && (
+              <img src={HoverTextImg} alt="Allow A.I." className="hover-text-img" />
+            )}
+          </div>
+
           {showModal && (
             <div className="permission-modal">
               <div className="modal-label">Permission prompt</div>
@@ -85,12 +92,7 @@ export default function TakeSelfieButton() {
 
       {cameraOn && (
         <div className="camera-preview-container">
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            className="camera-preview"
-          />
+          <video ref={videoRef} autoPlay playsInline className="camera-preview" />
           <button className="capture-button" onClick={handleCapture}>Capture</button>
         </div>
       )}

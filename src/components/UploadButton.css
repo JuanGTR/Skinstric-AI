@@ -1,23 +1,163 @@
 .upload-button-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1.5rem; /* space below header text */
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
-}
-
-.upload-button-image {
-  width: 350px;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.upload-button-image:hover {
-  transform: scale(1.05);
-  filter: brightness(0);
 }
 
 .upload-input-hidden {
   display: none;
+}
+
+.upload-button-diamond {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+}
+
+/* Dotted squares */
+.square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 2px dotted #888;
+  pointer-events: none;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.square-1 {
+  width: 250px;
+  height: 250px;
+  opacity: 0.3;
+}
+.square-2 {
+  width: 220px;
+  height: 220px;
+  opacity: 0.5;
+}
+.square-3 {
+  width: 190px;
+  height: 190px;
+  opacity: 0.8;
+}
+
+/* Center icon */
+.upload-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  z-index: 2;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover image (text) */
+.upload-hover-text {
+  position: absolute;
+  top: 65%;
+  right:63%;
+  width: 180px;
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Show everything on hover */
+.upload-button-diamond:hover .upload-icon {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.upload-button-diamond:hover .square-1,
+.upload-button-diamond:hover .square-2,
+.upload-button-diamond:hover .square-3 {
+  animation: pulseBorder 1.2s ease-in-out infinite;
+}
+
+.upload-button-diamond:hover .upload-hover-text {
+  opacity: 1;
+}
+
+/* Pulse animation */
+@keyframes pulseBorder {
+  0% {
+    border-color: #888;
+    opacity: 0.3;
+  }
+  50% {
+    border-color: #000;
+    opacity: 1;
+  }
+  100% {
+    border-color: #888;
+    opacity: 0.3;
+  }
+}
+
+/* Base styles you already have here... */
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .upload-button-diamond {
+    width: 150px;
+    height: 150px;
+  }
+
+  .square-1 {
+    width: 150px;
+    height: 150px;
+  }
+  .square-2 {
+    width: 130px;
+    height: 130px;
+  }
+  .square-3 {
+    width: 110px;
+    height: 110px;
+  }
+
+  .upload-icon {
+    width: 60px;
+  }
+
+  .upload-hover-text {
+    width: 120px;
+    top: 60%;
+    right: 55%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .upload-button-diamond {
+    width: 200px;
+    height: 200px;
+  }
+
+  .square-1 {
+    width: 200px;
+    height: 200px;
+  }
+  .square-2 {
+    width: 180px;
+    height: 180px;
+  }
+  .square-3 {
+    width: 160px;
+    height: 160px;
+  }
+
+  .upload-icon {
+    width: 80px;
+  }
+
+  .upload-hover-text {
+    width: 150px;
+    top: 63%;
+    right: 60%;
+  }
 }

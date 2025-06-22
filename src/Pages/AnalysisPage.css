@@ -76,8 +76,8 @@
 /* Diamond button layout */
 .diamond-button-container {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 47%;
+  left: 49.2%;
   width: min(38vw, 38vh, 320px);
   height: min(38vw, 38vh, 320px);
   transform: translate(-50%, -50%);
@@ -89,8 +89,8 @@
 }
 
 .diamond-button {
-  width: 80%;
-  height: 80%;
+  width: 125%;
+  height: 125%;
   max-width: 120px;
   max-height: 120px;
   min-width: 60px;
@@ -223,7 +223,7 @@
   .diamond-button-container {
     width: min(80vw, 80vh, 120px);
     height: min(80vw, 80vh, 120px);
-    top: 44%;
+    top: 43%;
      display: grid;
   justify-content: center;
   align-items: center;

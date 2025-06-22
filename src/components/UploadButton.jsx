@@ -1,4 +1,5 @@
-import UploadImg from '../assets/images/gallery.png';
+import UploadImg from '../assets/images/gallery-icon.png';
+import TitleGalleryImg from '../assets/images/title-gallery.png'; // your hover text image
 import '../components/UploadButton.css';
 
 export default function UploadButton({ onImageSelected }) {
@@ -11,13 +12,20 @@ export default function UploadButton({ onImageSelected }) {
 
   return (
     <div className="upload-button-wrapper">
-      <label htmlFor="imageUpload">
+      <label htmlFor="imageUpload" className="upload-button-diamond">
+        <div className="square square-1"></div>
+        <div className="square square-2"></div>
+        <div className="square square-3"></div>
+        <img src={UploadImg} alt="Upload" className="upload-icon" />
+        
+        {/* Hover text image inside label */}
         <img
-          src={UploadImg}
-          alt="Upload"
-          className="upload-button-image"
+          src={TitleGalleryImg}
+          alt="Gallery Title"
+          className="upload-hover-text"
         />
       </label>
+
       <input
         type="file"
         id="imageUpload"

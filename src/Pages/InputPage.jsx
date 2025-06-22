@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import proceedImg from '../assets/images/proceed-button.png';
-import backImg from '../assets/images/back-button.png';
+import IconButton from '../components/IconButton'; // ← updated import
 import './InputPage.css';
 
 const nameRegex = /^[A-Za-z\s'-]+$/;
@@ -85,23 +84,17 @@ export default function InputPage() {
             </ul>
           </nav>
         </div>
-       
       </header>
 
       <div className="input-page-form-container">
-        <p className="input-page-to-start-analysis">
-          TO START ANALYSIS
-        </p>
+        <p className="input-page-to-start-analysis">TO START ANALYSIS</p>
 
-        {/* Diamond with always-on clones */}
         <div className="input-page-diamond">
           <div className="input-page-diamond-clone input-page-clone-counter-clockwise" />
           <div className="input-page-diamond-clone input-page-clone-clockwise" />
         </div>
 
-        <p className="input-page-click-to-type">
-          CLICK TO TYPE
-        </p>
+        <p className="input-page-click-to-type">CLICK TO TYPE</p>
 
         <input
           className="input-page-input-field"
@@ -126,20 +119,9 @@ export default function InputPage() {
         )}
 
         <div className="input-page-button-row">
-          <div
-            className="input-page-back-button"
-            onClick={handleBack}
-          >
-            <img src={backImg} alt="Back" />
-          </div>
-
+          <IconButton label="BACK" onClick={handleBack} />
           {(step === 1 || (step === 2 && locationTyped)) && (
-            <img
-              src={proceedImg}
-              alt="Proceed"
-              className="input-page-proceed-button"
-              onClick={handleProceed}
-            />
+            <IconButton label="PROCEED" onClick={handleProceed} />
           )}
         </div>
       </div>

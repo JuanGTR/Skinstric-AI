@@ -1,0 +1,28 @@
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.icon-button-img {
+  height: 44px;
+  transition: transform 0.3s ease;
+}
+
+/* When hovering and using the expanded image */
+.icon-button:hover .icon-button-img.expanded {
+  transform: scale(1.5);
+}
+
+.icon-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  transition: transform 0.3s ease, font-weight 0.3s ease;
+}
+
+.icon-label.hovered {
+  font-weight: 700;
+  transform: scale(1.1);
+}

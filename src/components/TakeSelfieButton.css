@@ -8,20 +8,79 @@
   margin-bottom: 1rem;
 }
 
-.selfie-button-image {
-  width: 350px;
-  height: auto;
+/* New button structure */
+.selfie-button-diamond {
+  position: relative;
+  width: 250px;
+  height: 250px;
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
-.selfie-button-image:hover {
-  transform: scale(1.05);
-    filter: brightness(0);
-
+.square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 2px dotted #888;
+  pointer-events: none;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
 }
 
-/* Modal styles */
+/* Trigger animation on hover */
+.selfie-button-diamond:hover .square-1,
+.selfie-button-diamond:hover .square-2,
+.selfie-button-diamond:hover .square-3 {
+  animation: pulseBorder 1.2s ease-in-out infinite;
+}
+
+.square-1 {
+  width: 250px;
+  height: 250px;
+  opacity: 0.3;
+}
+
+.square-2 {
+  width: 220px;
+  height: 220px;
+  opacity: 0.5;
+}
+
+.square-3 {
+  width: 190px;
+  height: 190px;
+  opacity: 0.8;
+}
+
+/* Camera icon in center */
+/* Enlarged camera icon with grow on hover */
+.camera-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px; /* increased from 50px */
+  z-index: 2;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.selfie-button-diamond:hover .camera-icon {
+  transform: translate(-50%, -50%) scale(1.15); /* gentle grow */
+}
+
+
+/* Text image appears on hover */
+.hover-text-img {
+  position: absolute;
+  top: 5%;
+  left: 61%;
+  width: 230px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ------------------------------
+   Modal styles (unchanged)
+------------------------------- */
 .permission-modal {
   position: absolute;
   top: 50%;
@@ -35,7 +94,6 @@
   font-family: 'Helvetica', sans-serif;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   border-radius: 8px;
-  /* Removed the previous white bg and black border, keeping dark style */
 }
 
 .modal-label {
@@ -47,7 +105,6 @@
   color: black;
   font-weight: bold;
   text-align: right;
-  /* Removed margin-bottom from previous to keep position */
 }
 
 .modal-title {
@@ -78,7 +135,9 @@
   opacity: 0.5;
 }
 
-/* Camera preview styles */
+/* ------------------------------
+   Camera preview styles
+------------------------------- */
 .camera-preview-container {
   display: flex;
   flex-direction: column;
@@ -89,7 +148,6 @@
   width: 100%;
   box-sizing: border-box;
 }
-
 
 .camera-preview {
   width: 100%;
@@ -116,8 +174,11 @@
 
 .capture-button:hover {
   background-color: #222;
-  
 }
+
+/* ------------------------------
+   Mobile styles
+------------------------------- */
 @media (max-width: 768px) {
   .permission-modal {
     position: fixed;
@@ -157,10 +218,109 @@
     font-size: 13px;
     padding: 6px 12px;
   }
-}
-@media (max-width: 768px) {
+
   .camera-preview {
     max-width: 90vw;
-    aspect-ratio: 3 / 4; /* Maintains shape */
+    aspect-ratio: 3 / 4;
+  }
+
+  .hover-text-img {
+    top: 90%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 120px;
+  }
+}
+@keyframes pulseBorder {
+  0% {
+    border-color: #888;
+    opacity: 0.3;
+  }
+  50% {
+    border-color: #000;
+    opacity: 1;
+  }
+  100% {
+    border-color: #888;
+    opacity: 0.3;
+  }
+}
+
+/* Base styles you provided remain unchanged */
+
+/* Responsive tweaks */
+
+/* Small phones (up to 480px) */
+@media (max-width: 480px) {
+  .selfie-button-diamond {
+    width: 150px;
+    height: 150px;
+  }
+
+  .square-1 {
+    width: 150px;
+    height: 150px;
+  }
+  .square-2 {
+    width: 130px;
+    height: 130px;
+  }
+  .square-3 {
+    width: 110px;
+    height: 110px;
+  }
+
+  .camera-icon {
+    width: 60px;
+  }
+
+  .hover-text-img {
+    top: 85%;        /* move lower on smaller screens */
+    left: 50%;
+    width: 120px;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+  .permission-modal {
+    width: 90%;
+    max-width: 280px;
+  }
+}
+
+/* Tablets and medium screens (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .selfie-button-diamond {
+    width: 200px;
+    height: 200px;
+  }
+
+  .square-1 {
+    width: 200px;
+    height: 200px;
+  }
+  .square-2 {
+    width: 180px;
+    height: 180px;
+  }
+  .square-3 {
+    width: 160px;
+    height: 160px;
+  }
+
+  .camera-icon {
+    width: 80px;
+  }
+
+  .hover-text-img {
+    top: 70%;
+    left: 60%;
+    width: 180px;
+    transform: none;
+  }
+
+  .permission-modal {
+    max-width: 300px;
   }
 }

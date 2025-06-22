@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import UploadButton from '../components/UploadButton';
 import TakeSelfieButton from '../components/TakeSelfieButton';
-import backIcon from '../assets/images/back-button.png';
+import IconButton from '../components/IconButton'; // ✅ NEW
 import './FaceInputPage.css';
 
 export default function FaceInputPage() {
@@ -40,9 +40,9 @@ export default function FaceInputPage() {
         </div>
       </main>
 
-      {/* ——— Inline Back Button ——— */}
-      <div className="face-back-button" onClick={() => navigate('/')}>
-        <img src={backIcon} alt="Back" />
+      {/* ——— Back Button with Custom Component ——— */}
+      <div className="face-back-button">
+        <IconButton label="BACK" onClick={() => navigate('/')} />
       </div>
     </div>
   );
