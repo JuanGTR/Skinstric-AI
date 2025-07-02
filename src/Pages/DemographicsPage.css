@@ -128,7 +128,6 @@
   font-size: 1.5rem;
   margin-bottom: 1rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
-  animation: glowPulse 2s ease-in-out infinite;
   margin-left: auto; /* Pushes the element as far right as possible in a flex container */
 }
 
@@ -236,24 +235,32 @@
 .confidence-bg {
   fill: none;
   stroke: #eee;
-  stroke-width: 3.8;
+  stroke-width: 0.5;
 }
 
 .confidence-fill {
   fill: none;
   stroke: #000;
-  stroke-width: 3.8;
+  stroke-width: 0.5;
   stroke-linecap: round;
   transition: stroke-dasharray 0.6s ease;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
 }
 
 .confidence-text {
   fill: #000;
-  font-size: 0.35em;
+  font-size: 0.25em;
   text-anchor: middle;
   dominant-baseline: middle;
   transform: rotate(90deg);
   transform-origin: center;
+}
+.circle-confidence,
+.confidence-ring {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 @media (max-width: 768px) {
   /* 1) Lock the page container to the viewport height and prevent it from scrolling */
